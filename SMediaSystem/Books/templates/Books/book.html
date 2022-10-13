@@ -1,0 +1,42 @@
+{% extends "Layout/layoutBook.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'Books/book.css' %}">
+{% endblock style %}
+{% block content %}
+    
+    <div class="row  book" >
+        <div class="col-xl"></div>
+        <div class="col">
+            <img class="book__img" src="../../../media/{{ img }}" width="250px">
+        </div>
+        <div class="col book__header__info">
+            <p class="book__title">{{ title }}</p>
+            
+            <ul class="author__list">
+                {% for Author in authorList %}
+                    <a href="/author/{{ Author.0 }}"><li>{{ Author.1 }}</li></a>
+                {% endfor %}
+            </ul>
+
+            <ul class="genre__list">
+                {% for Genre in genreList %}
+                    <a href="/author/{{ Genre.0 }}"><li>{{ Genre.1 }}</li></a>
+                {% endfor %}
+            </ul>
+
+            <div class="book__doc-url">
+                <a href="../../../media/{{ doc }}" download="">Download PDF </a>
+            </div>
+        </div>
+        <div class="col-xl"></div>  
+    </div>
+
+    <div class="row center">
+        <div class="book__summary">
+            {{ summary }}
+        </div>
+    </div>
+
+    
+{% endblock content %}

@@ -1,0 +1,33 @@
+
+{% extends "Layout/layoutBook.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'Books/index.css' %}">
+{% endblock style %}
+{% block content %}
+        <div class="row">
+            <div class="col">
+                <form method="post">
+                    {% csrf_token %}
+        
+                        <input type="text" class="form-control" name="BookRequest" placeholder="Поиск" aria-label="">
+                        <button style="margin: 7px;  padding-left:50px; padding-right: 50px;" type="submit" class="btn btn-outline-dark">Найти</button>
+                    </form>
+            </div>
+        </div>
+
+    
+    <div class="row row-cols-xl-4 row-cols-sm-3 row-cols-md-3">
+        {% for Book in AllBooks %}
+            <div class="col book" >
+                <a href="/book/{{ Book.id }}">
+                    <img class="book__img" src="../../../media/{{ Book.IMGList.0 }}" width="200px">
+                    <p class="book_title" style="word-wrap: break-word;">{{ Book.title }}</p>
+                    {% for Author in Book.authorList %}
+                        <p><a class="book_author" href="/author/{{ Author.0 }}">{{ Author.1 }}</a></p>
+                    {% endfor %}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "Layout/layoutBook.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'Authors/author.css' %}">
+{% endblock style %}
+{% block content %}
+    <div class="author" style="text-align: center;">
+        
+        <img class="author__img" src="../../../media/{{ AuthorInfo.img }}" width="225" height="225" style="margin: 10px;">
+        <p class="author__name">{{ AuthorInfo.name }}</p>
+        
+        <p class="author__summary">{{ AuthorInfo.summary }}</p>
+    </div>
+
+    <div class="book">
+        <div class="row row-cols-xl-4 row-cols-sm-3 row-cols-md-3">
+            {% for Book in AllBooks %}
+                <div class="col" >
+                    <a href="/book/{{ Book.id }}">
+                        <img  class="book__img" src="../../../media/{{ Book.img }}" width="200px">
+                        <p class="book_title">{{ Book.title }}</p>
+                        <!--{% for Author in Book.authorList %}
+                            <p class="book__author-url"><a class="author" href="/author/{{ Author.0 }}">{{ Author.1 }}</a></p>
+                        {% endfor %}-->
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+{% endblock content %}

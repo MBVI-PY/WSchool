@@ -1,0 +1,30 @@
+{% extends "Layout/layoutBook.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'Genres/index.css' %}">
+{% endblock style %}
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                {% csrf_token %}
+
+                    <input type="text" class="form-control" name="GenreRequest" placeholder="Поиск" aria-label="">
+                    <button style="margin: 7px;  padding-left:50px; padding-right: 50px;" type="submit" class="btn btn-outline-dark">Найти</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row row-cols-xl-3 row-cols-1">
+        {% for Genre in GenreList %}
+            <div class="col genre">
+                <a href="/genre/{{ Genre.id }}">
+                    <img class="genre__img" src="../../../media/{{ Genre.file }}" width="225px" height="225x">
+                    <p>
+                        <a class="genre__name">{{ Genre.name }}</a>
+                    </p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

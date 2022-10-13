@@ -1,0 +1,27 @@
+.row{
+    margin-top: 20px;
+}
+
+.col {
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.book_author {
+    color: #D7D9D9;
+}
+
+
+.book__img {
+    border: 4px solid #9C72F8; 
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(156, 114, 248, 0.5);
+    transition: 0.2s linear;
+}
+.book__img:hover{
+    border-radius: 35px;
+    opacity: 0.9;
+}

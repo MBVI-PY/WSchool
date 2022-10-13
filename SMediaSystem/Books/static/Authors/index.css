@@ -1,0 +1,26 @@
+.row{
+    margin-top: 20px;
+}
+
+.col {
+    text-align: center;
+}
+a.author__name {
+    text-decoration: none;
+    color: #0d0d0d;
+}
+
+
+
+img.author__img {
+    box-shadow: 0px 0px 10px rgba(156, 114, 248, 0.5);
+    border: 3px solid #9C72F8;
+    border-radius: 50%;
+    transition: 0.2s linear;
+    
+}
+
+img.author__img:hover{
+    opacity: 0.9;
+    
+}

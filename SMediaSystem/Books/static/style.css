@@ -1,0 +1,45 @@
+body{
+    background: url("../static/IMG/geometry2.PNG");
+    margin: 0;
+}
+div.nav{
+    display: flex;
+    background-color: #7756BF;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    margin: 0;
+    
+}
+div.nav > .nav_element{
+    padding-top: 14px;
+    padding-bottom: 14px;
+    color: white;
+    width: 33.33%;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.2s linear;
+}
+div.nav > .menu {
+    height: 52px;
+    width: 70px;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background-color: #FFF7BA;
+    color: #7756BF;
+    text-decoration: none;
+    transition: 0.2s linear;
+}
+div.nav> .nav_element:hover{
+    color: #7756BF;
+    background-color: #FFF3A9;
+}
+
+div.nav> .menu:hover{
+    color: #FFF3A9;
+    background-color: #7756BF;
+}
+

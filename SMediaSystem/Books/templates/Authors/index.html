@@ -1,0 +1,33 @@
+{% extends "Layout/layoutBook.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'Authors/index.css' %}">
+{% endblock style %}
+{% block content %}
+    <div class="row">
+        <div class="col">
+            
+            <form method="post">
+                {% csrf_token %}
+                    
+                        <input type="text" class="form-control " name="AuthorRequest" placeholder="Поиск" aria-label="">
+                        <button style="margin: 7px;  padding-left:50px; padding-right: 50px;" type="submit" class="btn btn-outline-dark">Найти</button>
+                    
+                
+            </form>
+        </div>
+    </div>
+    
+    <div class="row row-cols-xl-3 row-cols-sm-1">
+        {% for Author in AuthorList %}
+            <div class="col author">
+                <a href="/author/{{ Author.id }}">
+                    <img class="author__img" src="../../../media/{{ Author.file }}" width="225px" height="225x">
+                    <p>
+                        <a class="author__name">{{ Author.name }} {{ Author.surname }}</a>
+                    </p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
